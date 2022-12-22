@@ -14,9 +14,9 @@ function reset() {
   cwidth = window.innerWidth;
 	cheight = window.innerHeight;
 	c.width = cwidth;
-	c.height = cheight;
+	//c.height = cheight;
   //c.width = 1900;  // Set the width to 500 pixels
-  //c.height = 70;  // Set the height to 300 pixels
+  c.height = 70;  // Set the height to 300 pixels
 
 }
 
@@ -42,7 +42,7 @@ function newPass(shell) {
 
     var pas = {};
     pas.x = shell.x * cwidth;
-    pas.y = shell.y * cheight;
+    pas.y = shell.y * c.height;
 
     var a = Math.random() * 4;
     var s = Math.random() * 10;
@@ -67,7 +67,7 @@ function Run() {
 
   //ctx.clearRect(0, 0, cwidth, cheight);
 	ctx.fillStyle = "#00539f"; //background color "rgba(0,0,0,0.25)"
-	ctx.fillRect(0, 0, cwidth, cheight);
+	ctx.fillRect(0, 0, cwidth, c.height);
 
   if ((shells.length < 10) && (Math.random() > 0.96)) { newShell(); }
 
@@ -76,7 +76,7 @@ function Run() {
     var shell = shells[ix];
 
     ctx.beginPath();
-    ctx.arc(shell.x * cwidth, shell.y * cheight, shell.size, 0, 2 * Math.PI);
+    ctx.arc(shell.x * cwidth, shell.y * c.height, shell.size, 0, 2 * Math.PI);
     ctx.fillStyle = shell.color;
     ctx.fill();
 
